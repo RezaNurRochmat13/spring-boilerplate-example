@@ -7,7 +7,7 @@ Spring boilerplate template
 - Maven
 - IntelliJ IDEA
 - Postman
-- Docker
+- Docker Compose
 ```
 
 ## Installation
@@ -28,16 +28,16 @@ Spring boilerplate template
 ```
 - Spring Boot
 - Spring Data JPA
-- H2 Database
+- Postgres Database
 - Lombok
 ```
 
 ## Architecture
 ```
-- Controller
-- Service
-- Repository
-- Entity
+- Presenter => package for presentation layer
+- Service => package for business logic layer
+- Repository => package for data access layer
+- Entity => package for entity classes
 ```
 
 ## Contributing
