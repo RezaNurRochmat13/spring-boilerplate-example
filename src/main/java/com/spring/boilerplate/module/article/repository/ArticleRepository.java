@@ -1,6 +1,6 @@
-package com.spring.boilerplate.repository;
+package com.spring.boilerplate.module.article.repository;
 
-import com.spring.boilerplate.entity.Article;
+import com.spring.boilerplate.module.article.entity.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

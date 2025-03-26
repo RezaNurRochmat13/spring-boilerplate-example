@@ -1,12 +1,11 @@
-package com.spring.boilerplate.presenter;
+package com.spring.boilerplate.module.article.presenter;
 
-import com.spring.boilerplate.entity.Article;
-import com.spring.boilerplate.service.ArticleServiceImpl;
+import com.spring.boilerplate.module.article.entity.Article;
+import com.spring.boilerplate.module.article.service.ArticleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController

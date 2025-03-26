@@ -1,6 +1,6 @@
-package com.spring.boilerplate.service;
+package com.spring.boilerplate.module.article.service;
 
-import com.spring.boilerplate.entity.Article;
+import com.spring.boilerplate.module.article.entity.Article;
 
 import java.util.List;
 

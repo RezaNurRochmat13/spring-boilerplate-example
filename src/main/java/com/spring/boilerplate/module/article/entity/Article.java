@@ -1,5 +1,6 @@
-package com.spring.boilerplate.entity;
+package com.spring.boilerplate.module.article.entity;
 
+import com.spring.boilerplate.utils.entity.Auditing;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

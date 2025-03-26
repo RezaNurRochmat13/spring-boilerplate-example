@@ -1,8 +1,8 @@
-package com.spring.boilerplate.service;
+package com.spring.boilerplate.module.article.service;
 
-import com.spring.boilerplate.entity.Article;
-import com.spring.boilerplate.exception.ResourceNotFound;
-import com.spring.boilerplate.repository.ArticleRepository;
+import com.spring.boilerplate.module.article.entity.Article;
+import com.spring.boilerplate.utils.exception.ResourceNotFound;
+import com.spring.boilerplate.module.article.repository.ArticleRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
