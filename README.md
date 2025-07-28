@@ -1,54 +1,95 @@
-# Spring Boilerplate Template
-Spring boilerplate template
+# 🌱 Spring Boot Boilerplate Template
 
-## Requirements
-```
-- Java 17
-- Maven
-- IntelliJ IDEA
-- Postman
-- Docker Compose
-```
+A clean and modular Spring Boot boilerplate to kickstart your next project using best practices for scalable architecture.
 
-## Installation
-```
-1. Clone the repository
-2. Run `mvn clean install` to build the project
-3. Run `mvn spring-boot:run` to start the application
-```
+---
 
-## Usage
-```
-1. Open `http://localhost:8080` in your browser
-2. Use the provided endpoints to interact with the application
-3. Run `mvn spring-boot:run` to start the application
-```
+## ✅ Requirements
 
-## Dependencies
-```
-- Spring Boot
-- Spring Data JPA
-- Postgres Database
-- Lombok
-```
+Ensure you have the following installed:
 
-## Architecture
-```
-- Presenter => package for presentation layer
-- Service => package for business logic layer
-- Repository => package for data access layer
-- Entity => package for entity classes
+* Java 17
+* Maven
+* Docker & Docker Compose
+* IntelliJ IDEA (recommended)
+* Postman (for API testing)
+
+---
+
+## 🚀 Getting Started
+
+### 🧱 Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/spring-boot-boilerplate.git
+cd spring-boot-boilerplate
+
+# 2. Build the project
+mvn clean install
+
+# 3. Run the application
+mvn spring-boot:run
 ```
 
-## Contributing
-```
-1. Fork the repository
-2. Create a new branch
-3. Commit your changes
-4. Submit a pull request
+Alternatively, you can run with Docker:
+
+```bash
+docker-compose up --build
 ```
 
-## License
+---
+
+### 🌐 Access the Application
+
+Once running, open your browser:
+
 ```
-MIT License
+http://localhost:8080
 ```
+
+Use Postman or your preferred REST client to interact with the API.
+
+---
+
+## 📦 Tech Stack & Dependencies
+
+* **Spring Boot** – Main framework
+* **Spring Data JPA** – ORM & database access
+* **PostgreSQL** – Relational database
+* **Lombok** – Boilerplate code reduction
+* **Docker Compose** – Container orchestration (optional)
+* **MapStruct** *(optional)* – Object mapping (add if used)
+
+---
+
+## 🧱 Project Architecture
+
+```
+src/
+├── presenter/   # Controllers or REST API layer
+├── service/     # Business logic layer
+├── repository/  # Data access layer (Spring Data JPA)
+├── entity/      # JPA Entities
+└── config/      # Configuration classes (e.g., DB, CORS, Security)
+```
+
+This structure follows a layered architecture and is designed for easy maintainability and testing.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork this repository
+2. Create your feature branch: `git checkout -b feature/awesome-feature`
+3. Commit your changes: `git commit -m 'Add awesome feature'`
+4. Push to the branch: `git push origin feature/awesome-feature`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
