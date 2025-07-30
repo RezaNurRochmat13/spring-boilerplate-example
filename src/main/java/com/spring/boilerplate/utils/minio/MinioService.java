@@ -51,7 +51,7 @@ public class MinioService {
         return shortenedPresignedUrl(presignedUrl);
     }
 
-    private String shortenedPresignedUrl(String longUrl) throws Exception {
+    protected String shortenedPresignedUrl(String longUrl) throws Exception {
         String apiUrl = "https://tinyurl.com/api-create.php?url=" + longUrl;
         HttpURLConnection connection = (HttpURLConnection) new URL(apiUrl).openConnection();
         connection.setRequestMethod("GET");
