@@ -2,6 +2,7 @@ package com.spring.boilerplate.module.article.presenter;
 
 import com.spring.boilerplate.module.article.entity.Article;
 import com.spring.boilerplate.module.article.service.ArticleServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,7 @@ public class ArticlePresenter {
     }
 
     @GetMapping("/{id}")
-    public Map<String, Object> getArticleById(Long id) {
+    public Map<String, Object> getArticleById(@PathVariable Long id) {
         Map<String, Object> response = new HashMap<>();
         response.put("status", "success");
         response.put("data", articleService.findArticleById(id));
@@ -32,7 +33,7 @@ public class ArticlePresenter {
     }
 
     @PostMapping
-    public Map<String, Object> createArticle(@RequestBody Article article) {
+    public Map<String, Object> createArticle(@Valid @RequestBody Article article) {
         Map<String, Object> response = new HashMap<>();
         response.put("status", "success");
         response.put("data", articleService.createArticle(article));
