@@ -41,7 +41,7 @@ public class ArticlePresenter {
     }
 
     @PutMapping("/{id}")
-    public Map<String, Object> updateArticle(@PathVariable Long id, @RequestBody Article article) {
+    public Map<String, Object> updateArticle(@PathVariable Long id, @Valid@RequestBody Article article) {
         Map<String, Object> response = new HashMap<>();
         response.put("status", "success");
         response.put("data", articleService.updateArticle(id, article));

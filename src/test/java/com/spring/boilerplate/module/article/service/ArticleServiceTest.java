@@ -79,6 +79,40 @@ class ArticleServiceTest {
     }
 
     @Test
+    void testCreateArticle_withEmptyTitle_shouldThrowException() {
+        dummyArticle.setTitle("");
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
+            articleService.createArticle(dummyArticle);
+        });
+
+        assertEquals("Title must not be empty", ex.getMessage());
+    }
+
+    @Test
+    void testCreateArticle_withNullContent_shouldThrowException() {
+        dummyArticle.setAuthor(null);
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
+            articleService.createArticle(dummyArticle);
+        });
+
+        assertEquals("Author must not be empty", ex.getMessage());
+    }
+
+    @Test
+    void testCreateArticle_withLongTitle_shouldThrowException() {
+        dummyArticle.setTitle("A".repeat(300)); // Misalnya max 255 karakter
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
+            articleService.createArticle(dummyArticle);
+        });
+
+        assertEquals("Title must not exceed 255 characters", ex.getMessage());
+    }
+
+
+    @Test
     void testUpdateArticle_found() {
         Article updated = new Article();
         updated.setTitle("Updated Title");

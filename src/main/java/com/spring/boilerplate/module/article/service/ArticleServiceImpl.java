@@ -29,6 +29,16 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article createArticle(Article article) {
+        if (article.getTitle() == null || article.getTitle().trim().isEmpty()) {
+            throw new IllegalArgumentException("Title must not be empty");
+        }
+        if (article.getAuthor() == null || article.getAuthor().trim().isEmpty()) {
+            throw new IllegalArgumentException("Author must not be empty");
+        }
+        if (article.getTitle().length() > 255) {
+            throw new IllegalArgumentException("Title must not exceed 255 characters");
+        }
+
         return articleRepository.save(article);
     }
 

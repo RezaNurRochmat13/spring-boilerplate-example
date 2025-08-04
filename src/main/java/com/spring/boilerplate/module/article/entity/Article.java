@@ -3,6 +3,7 @@ package com.spring.boilerplate.module.article.entity;
 import com.spring.boilerplate.utils.entity.Auditing;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +21,8 @@ public class Article extends Auditing implements Serializable {
     private Long id;
 
     @Column(name = "title")
-    @NotBlank
+    @NotBlank(message = "Title is required")
+    @Size(max = 255, message = "Title must not exceed 255 characters")
     private String title;
 
     @Column(name = "description")
@@ -30,6 +32,6 @@ public class Article extends Auditing implements Serializable {
     private String content;
 
     @Column(name = "author")
-    @NotBlank
+    @NotBlank(message = "Author is required")
     private String author;
 }
