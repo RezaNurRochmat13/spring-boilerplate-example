@@ -133,11 +133,25 @@ public class ArticlePresenterTest {
     void testUpdateArticle_notFound() throws Exception {
         Article update = new Article();
         update.setTitle("X");
+        update.setAuthor("Test Author");
+        update.setContent("Test content");
+        update.setDescription("Test description");
 
         mockMvc.perform(put("/api/v1/articles/9999")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(update)))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testUpdateArticle_badRequest() throws Exception {
+        Article update = new Article();
+        update.setTitle("X");
+
+        mockMvc.perform(put("/api/v1/articles/9999")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(update)))
+                .andExpect(status().isBadRequest());
     }
 
 
