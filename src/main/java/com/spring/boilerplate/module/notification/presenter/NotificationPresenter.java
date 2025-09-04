@@ -1,4 +1,4 @@
-package com.spring.boilerplate.module.notification.controller;
+package com.spring.boilerplate.module.notification.presenter;
 
 import com.spring.boilerplate.module.notification.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/notifications")
-public class NotificationController {
+public class NotificationPresenter {
     @Autowired
     private NotificationService notificationService;
 
