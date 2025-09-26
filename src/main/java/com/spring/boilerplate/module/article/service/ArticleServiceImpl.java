@@ -5,6 +5,9 @@ import com.spring.boilerplate.utils.exception.ResourceNotFound;
 import com.spring.boilerplate.module.article.repository.ArticleRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,17 +20,20 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleRepository articleRepository;
 
     @Override
+    @Cacheable(value = "articles", key = "'all'")
     public List<Article> findAllArticles() {
         return articleRepository.findAllActiveArticles();
     }
 
     @Override
+    @Cacheable(value = "articles", key = "#id")
     public Article findArticleById(Long id) {
         return articleRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFound("Article not found with id " + id));
     }
 
     @Override
+    @CacheEvict(value = "articles", key = "'all'")
     public Article createArticle(Article article) {
         if (article.getTitle() == null || article.getTitle().trim().isEmpty()) {
             throw new IllegalArgumentException("Title must not be empty");
@@ -43,6 +49,10 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = "articles", key = "#id"),
+            @CacheEvict(value = "articles", key = "'all'")
+    })
     public Article updateArticle(Long id, Article article) {
         Article existingArticle = articleRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFound("Article not found with id " + id));
@@ -56,6 +66,10 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = "articles", key = "#id"),
+            @CacheEvict(value = "articles", key = "'all'")
+    })
     public void deleteArticle(Long id) {
         Article existingArticle = articleRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFound("Article not found with id " + id));
