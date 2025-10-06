@@ -1,4 +1,4 @@
-package com.spring.boilerplate.config.security;
+package com.spring.boilerplate.configuration;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

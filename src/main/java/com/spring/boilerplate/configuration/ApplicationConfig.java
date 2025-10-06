@@ -1,4 +1,4 @@
-package com.spring.boilerplate.config.security;
+package com.spring.boilerplate.configuration;
 
 import com.spring.boilerplate.module.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,8 @@ public class ApplicationConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .or(() -> userRepository.findByUsername(username))
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with identifier: " + username));
     }
 
     @Bean

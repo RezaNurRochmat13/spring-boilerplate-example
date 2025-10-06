@@ -1,6 +1,6 @@
 package com.spring.boilerplate.module.auth.service;
 
-import com.spring.boilerplate.config.security.JwtService;
+import com.spring.boilerplate.configuration.JwtService;
 import com.spring.boilerplate.module.auth.dto.request.AuthenticationRequest;
 import com.spring.boilerplate.module.auth.dto.request.RegisterRequest;
 import com.spring.boilerplate.module.auth.dto.response.AuthenticationResponse;
