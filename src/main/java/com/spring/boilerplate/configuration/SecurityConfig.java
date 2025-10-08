@@ -42,11 +42,15 @@ public class SecurityConfig {
                     "/v3/api-docs/**",
                     "/swagger-resources",
                     "/swagger-resources/**",
-                    "/configuration/ui",
-                    "/configuration/security",
+                    "/swagger-resources/configuration/ui",
+                    "/swagger-resources/configuration/security",
                     "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/api-docs",
+                    "/api-docs/**",
                     "/webjars/**",
-                    "/swagger-ui.html"
+                    "/favicon.ico",
+                    "/error"
                 ).permitAll()
                 .anyRequest().authenticated()
             )
